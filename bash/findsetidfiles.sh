@@ -23,3 +23,19 @@ echo "Setuid files:"
 echo "============="
 find / -type f -executable -perm -4000 -ls 2>/dev/null | sort -k 3
 echo ""
+
+#title for setgid files
+echo "Setgid files:"
+#under lining the title
+echo "============="
+#displaying the setgid files using find command and redirecting error to /dev/null
+find / -type f -executable -perm -2000 -ls 2>/dev/null | sort -K 5 #sorting file's list on bais of their group
+echo "" #giving space between two tasks
+
+#title for the list of 10 largest regular files
+echo "The 10 largest regular files in the system:"
+#underlining the title
+echo "============="
+#displaying the 10 largest regular files and sorting them by their size
+find / -type f -executable -ls -l 2>/dev/null | du -ah | sort -hr | head -n 10
+
