@@ -15,7 +15,7 @@
 #   Invent your own titles, do not use the ones from this example
 
 ###############
-# variables # 
+# variables #
 ###############
 
 USER="$USER"
@@ -27,7 +27,7 @@ timenow=$(date +%I:%M\ %p)
 # main  #
 ###############
 
-echo "$cows It is $day at $timenow."
+echo "$It is $day at $timenow."
 if [ "$day" = Monday ];then title="happy"
 elif [ "$day" = Tuesday ];then title="good"
 elif [ "$day" = Wednesday ];then title="lucky"
@@ -35,6 +35,5 @@ elif [ "$day" = Thursday ];then title="busy"
 elif [ "$day" = Friday ];then title"enjoyful"
 elif [ "$day" = Saturday ];then title"Optimistic"
 elif [ "$day" = Sunday ];then title"tired"
-fi 
+fi
 echo "Welcome to planet $hostname, "$title $USER!""
-
