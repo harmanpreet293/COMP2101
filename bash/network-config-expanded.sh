@@ -67,7 +67,7 @@ interface_number=$(lshw -class network | awk '/logical name:/{print $3}' | wc -l
 #using a loop for generating report of each interface except loopback interface
 for((x=1;x<=$interface_number;x++));
 	do interface=$(lshw -class network | awk '/logical name:/{print $3}' | awk -v y=$x 'NR==y{print $1; exit}')
-	if [[ $interface = lo* ]]; then continue; fi
+	if [[ $interface == lo* ]]; then continue; fi
 	#identifing the ip address and hostname
 	ipv4_address=$(ip a s $interface|awk -F '[/ ]+' '/inet /{print $3}')
 	ipv4_hostname=$(getent hosts $ipv4_address | awk '{print $2}')
