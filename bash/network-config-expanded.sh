@@ -62,32 +62,7 @@ EOF
 #####
 
 #dynamically idenitifing the total number of interfaces running in the computer and their names
-interface_number=$(lshw -class network | awk '/logical name:/{print $3}' | wc -l)
 
-#using a loop for generating report of each interface except loopback interface
-for((x=1;x<=$interface_number;x++));
-	do interface=$(lshw -class network | awk '/logical name:/{print $3}' | awk -v y=$x 'NR==y{print $1; exit}')
-	if [[ $interface == lo* ]];
-		then continue;
-	fi
-	#identifing the ip address and hostname
-	ipv4_address=$(ip a s $interface|awk -F '[/ ]+' '/inet /{print $3}')
-	ipv4_hostname=$(getent hosts $ipv4_address | awk '{print $2}')
-
-	# Identify the network number for this interface and its name if it has one
-	network_address=$(ip route list dev $interface scope link|cut -d ' ' -f 1)
-	network_number=$(cut -d / -f 1 <<<"$network_address")
-	network_name=$(getent networks $network_number|awk '{print $1}')
-
-#printing the report of interface
-	echo Interface $interface:
-	echo ===============
-	echo Address         : $ipv4_address
-	echo Name            : $ipv4_hostname
-	echo Network Address : $network_address
-	echo Network Name    : $network_name
-
-done
 #####
 # End of per-interface report
 #####

@@ -10,11 +10,13 @@ while [ $# -gt 0 ]; do
   # add whatever is in $1 to the myargs array
   myargs+=("$1")
   # tell the user what we did
-  echo "Added \'$1\' to the arguments array"
+
 
 # TASK 1: instead of just adding arguments to an array, use a case statement to recognize some options
 #          Options to recognize: -h for help, -v for verbose mode, -d N for debug mode with N being a single digit number
 #          If the help option is recognized, print out help for the command and exit
+
+
 #          If the verbose option is recognized, set a variable to indicate verbose mode is on
 #          If the debug optionis recognized, set a variable with the debug level from the number given after the -d on the command line
 #             display an error if the user gave the -d option without a single digit number after it
@@ -32,5 +34,8 @@ echo "Done"
 
 # TASK2: display the settings and myargs contents
 #         Tell the user if vebose mode is on
+echo verbose_mode
 #         Tell the user if debug mode is on and if it is, what number it is set to
+echo debug_mode
 #         Print out the myargs array with a label
+echo myargs
