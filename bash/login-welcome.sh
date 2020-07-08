@@ -15,11 +15,11 @@
 #   Invent your own titles, do not use the ones from this example
 
 ###############
-# variables # 
+# variables #
 ###############
 
 #assigning the value of username to variable USER
-USER="$USER"
+
 #generating the value of hostname
 hostname="$(hostname)"
 #assigning the today's day name to variable day
@@ -32,7 +32,7 @@ timenow=$(date +%I:%M\ %p)
 ###############
 
 #printing the today's day and current time
-cows="$It is $day at $timenow."
+a="It is $day at $timenow."
 
 #using if else statement to give title to each day
 if [ "$day" = Monday ];then title="happy"
@@ -42,7 +42,9 @@ elif [ "$day" = Thursday ];then title="busy"
 elif [ "$day" = Friday ];then title"enjoyful"
 elif [ "$day" = Saturday ];then title"Optimistic"
 elif [ "$day" = Sunday ];then title"tired"
-fi 
+fi
 #displaying the line containing variable
-cows="Welcome to planet $hostname, $title $USER!"
+b="Welcome to planet $hostname, $title $USER!"
 
+cowsay "$a"
+cowsay "$b"
